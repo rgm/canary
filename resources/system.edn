@@ -1,7 +1,8 @@
 {:http-port        #long #or [#env PORT 8080]
  :profile          #profile {:dev :dev :prd :prd}
+ :slack-webhook    #env SLACK_WEB_HOOK
  :components
- {:notifier {:start (serinus.notifier/start!)
+ {:notifier {:start (serinus.notifier/start! {})
              :stop  (serinus.notifier/stop! this)}
   :worker   {:start (serinus.worker/start! (clip/ref :notifier) "canaries.edn")
              :stop  (serinus.worker/stop! this)}

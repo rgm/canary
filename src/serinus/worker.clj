@@ -18,7 +18,7 @@
 ;; * example tests {{{1
 
 ;; A canary test is an arbitrary clojure fn arity that returns `[:success data]`
-;; or `[:failure data]`
+;; or `[:failure data]`.
 
 (defn ex-1 [] (timbre/info "running example 1"))
 
