@@ -1,0 +1,18 @@
+{:http-port        #long #or [#env PORT 8080]
+ :profile          #profile {:dev :dev :prd :prd}
+ :components
+ {:notifier {:start (serinus.notifier/start!)
+             :stop  (serinus.notifier/stop! this)}
+  :worker   {:start (serinus.worker/start! (clip/ref :notifier) "canaries.edn")
+             :stop  (serinus.worker/stop! this)}
+
+  ; :ring-router
+  ; {:start (opengb.canary.http/make-ring-router
+  ;          {:profile #ref [:profile]})}
+  ; :ring-app
+  ; {:start (opengb.canary.http/make-ring-app (clip/ref :ring-router) {})}
+  ; :http-server
+  ; {:start (org.httpkit.server/run-server
+  ;          (clip/ref :ring-app) {:port #ref [:http-port]})
+  ;  :stop  (this :timeout 1000)}
+  }}

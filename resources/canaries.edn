@@ -1,0 +1,8 @@
+[{:id         :ex-1
+  :interval   2 ;; seconds
+  :test       (serinus.worker/ex-1)
+  :notify-url "https://slack.whatever"}
+ {:id         :ex-2
+  :interval   5
+  :test       (serinus.worker/ex-2)
+  :notify-url "https://slack.whatever"}]

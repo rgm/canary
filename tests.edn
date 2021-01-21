@@ -1,0 +1,6 @@
+#kaocha/v1
+{:tests  [{:id           :clj/unit
+           :source-paths ["src"]
+           :test-paths   ["test"]}]
+
+ :plugins [:kaocha.plugin/hooks :kaocha.plugin/notifier]}
